@@ -1,5 +1,6 @@
 #!/bin/bash
 # System upgrade script
+COMPOSER_GLOBAL_DIR="$HOME/.composer"
 
 echo '===> Self update '
 cd /usr/local/opt/system_update && git pull
@@ -40,7 +41,10 @@ echo '===> Update Ruby'
 gem update `gem list | cut -d " " -f 1`;
 
 printf '\e[32m===> done \e[39m\n\n'
-echo '===> Update Composer'
-composer global update;
 
-printf '\e[32m===> done \e[39m\n\n'
+if [ -d "$COMPOSER_GLOBAL_DIR" ]; then
+    echo '===> Update Composer'
+    composer global update;
+
+    printf '\e[32m===> done \e[39m\n\n'
+fi
