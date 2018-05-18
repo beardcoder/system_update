@@ -1,0 +1,42 @@
+#!/bin/bash
+# System upgrade script
+
+echo '===> Update homebrew '
+
+/usr/local/bin/brew doctor;
+/usr/local/bin/brew update;
+
+printf '\e[32m===> done \e[39m\n\n'
+echo '===> Upgrade homebrew'
+
+/usr/local/bin/brew upgrade --cleanup;
+
+printf '\e[32m===> done \e[39m\n\n'
+echo '===> Upgrade homebrew cask'
+
+/usr/local/bin/brew cu -a -y -q --cleanup;
+
+printf '\e[32m===> done \e[39m\n\n'
+echo '===> Cleanup homebrew'
+
+/usr/local/bin/brew prune;
+/usr/local/bin/brew cleanup -s;
+
+printf '\e[32m===> done \e[39m\n\n'
+echo '===> Update NPM'
+
+npm update -g;
+
+printf '\e[32m===> done \e[39m\n\n'
+echo '===> Update macOS app store'
+mas upgrade;
+
+printf '\e[32m===> done \e[39m\n\n'
+echo '===> Update Ruby'
+gem update `gem list | cut -d " " -f 1`;
+
+printf '\e[32m===> done \e[39m\n\n'
+echo '===> Update Composer'
+composer global update;
+
+printf '\e[32m===> done \e[39m\n\n'
