@@ -1,6 +1,10 @@
 #!/bin/bash
 # System upgrade script
 
+echo '===> Self update '
+cd /usr/local/opt/system_update && git pull
+
+printf '\e[32m===> done \e[39m\n\n'
 echo '===> Update homebrew '
 
 /usr/local/bin/brew doctor;
