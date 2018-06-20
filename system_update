@@ -31,7 +31,7 @@ printf '\e[32m===> done \e[39m\n\n'
 echo '===> Update NPM'
 
 npm update -g;
-yarn global upgrade -s --no-progress --non-interactive;
+yarn global upgrade -s --no-progress --non-interactive --prod > /dev/null 2>&1;
 
 printf '\e[32m===> done \e[39m\n\n'
 echo '===> Update macOS app store'
