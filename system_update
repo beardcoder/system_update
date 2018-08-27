@@ -1,5 +1,8 @@
 #!/bin/bash
 # System upgrade script
+set -e
+set -x
+
 COMPOSER_GLOBAL_DIR="$HOME/.composer"
 
 echo '===> Self update '
@@ -30,8 +33,10 @@ echo '===> Cleanup homebrew'
 printf '\e[32m===> done \e[39m\n\n'
 echo '===> Update NPM'
 
-npm update -g;
-yarn global upgrade -s --no-progress --non-interactive --prod > /dev/null 2>&1;
+for package in $(npm -g outdated --parseable --depth=0 | cut -d: -f2 | sed 's/@.*//g')
+do
+    npm -g install "$package@latest"
+done
 
 printf '\e[32m===> done \e[39m\n\n'
 echo '===> Update macOS app store'
