@@ -1,8 +1,5 @@
 #!/bin/bash
 # System upgrade script
-set -e
-set -x
-
 COMPOSER_GLOBAL_DIR="$HOME/.composer"
 
 echo '===> Self update '
@@ -17,12 +14,12 @@ echo '===> Update homebrew '
 printf '\e[32m===> done \e[39m\n\n'
 echo '===> Upgrade homebrew'
 
-/usr/local/bin/brew upgrade --cleanup;
+/usr/local/bin/brew upgrade;
 
 printf '\e[32m===> done \e[39m\n\n'
 echo '===> Upgrade homebrew cask'
 
-/usr/local/bin/brew cu -a -y -q --cleanup;
+/usr/local/bin/brew cask upgrade;
 
 printf '\e[32m===> done \e[39m\n\n'
 echo '===> Cleanup homebrew'
@@ -44,6 +41,8 @@ mas upgrade;
 
 printf '\e[32m===> done \e[39m\n\n'
 echo '===> Update Ruby'
+
+gem update --system
 gem update `gem list | cut -d " " -f 1`;
 
 printf '\e[32m===> done \e[39m\n\n'
