@@ -6,6 +6,15 @@ echo '===> Self update '
 cd /usr/local/opt/system_update && git pull
 
 printf '\e[32m===> done \e[39m\n\n'
+
+
+printf '\e[32m===> done \e[39m\n\n'
+echo '===> Update macOS'
+
+softwareupdate -il
+
+printf '\e[32m===> done \e[39m\n\n'
+
 echo '===> Update homebrew '
 
 /usr/local/bin/brew doctor;
