@@ -41,8 +41,8 @@ mas upgrade;
 printf '\e[32m===> done \e[39m\n\n'
 echo '===> Update Ruby'
 
-sudo gem update --system
-sudo gem update `gem list | cut -d " " -f 1`;
+gem update --system
+gem update `gem list | cut -d " " -f 1`;
 
 printf '\e[32m===> done \e[39m\n\n'
 
