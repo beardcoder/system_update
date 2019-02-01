@@ -24,7 +24,6 @@ echo '===> Upgrade homebrew cask'
 printf '\e[32m===> done \e[39m\n\n'
 echo '===> Cleanup homebrew'
 
-/usr/local/bin/brew prune;
 /usr/local/bin/brew cleanup -s;
 
 printf '\e[32m===> done \e[39m\n\n'
@@ -42,8 +41,8 @@ mas upgrade;
 printf '\e[32m===> done \e[39m\n\n'
 echo '===> Update Ruby'
 
-gem update --system
-gem update `gem list | cut -d " " -f 1`;
+sudo gem update --system
+sudo gem update `gem list | cut -d " " -f 1`;
 
 printf '\e[32m===> done \e[39m\n\n'
 
