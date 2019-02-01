@@ -11,7 +11,7 @@ printf '\e[32m===> done \e[39m\n\n'
 printf '\e[32m===> done \e[39m\n\n'
 echo '===> Update macOS'
 
-softwareupdate -il
+softwareupdate -i -a 
 
 printf '\e[32m===> done \e[39m\n\n'
 
