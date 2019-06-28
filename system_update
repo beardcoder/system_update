@@ -11,7 +11,7 @@ printf '\e[32m===> done \e[39m\n\n'
 printf '\e[32m===> done \e[39m\n\n'
 echo '===> Update macOS'
 
-softwareupdate -i -a 
+softwareupdate -i -a
 
 printf '\e[32m===> done \e[39m\n\n'
 
@@ -29,6 +29,7 @@ printf '\e[32m===> done \e[39m\n\n'
 echo '===> Upgrade homebrew cask'
 
 /usr/local/bin/brew cask upgrade;
+/usr/local/bin/brew cu -ayq;
 
 printf '\e[32m===> done \e[39m\n\n'
 echo '===> Cleanup homebrew'
@@ -50,8 +51,8 @@ mas upgrade;
 printf '\e[32m===> done \e[39m\n\n'
 echo '===> Update Ruby'
 
-sudo gem update --system
-sudo gem update `gem list | cut -d " " -f 1` -n /usr/local/bin;
+gem update --system
+gem update `gem list | cut -d " " -f 1` -n /usr/local/bin;
 
 printf '\e[32m===> done \e[39m\n\n'
 
