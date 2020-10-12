@@ -37,11 +37,6 @@ echo '===> Cleanup homebrew'
 /usr/local/bin/brew cleanup -s;
 
 printf '\e[32m===> done \e[39m\n\n'
-echo '===> Update NPM'
-
-npm update -g
-
-printf '\e[32m===> done \e[39m\n\n'
 echo '===> Update macOS app store'
 mas upgrade;
 
